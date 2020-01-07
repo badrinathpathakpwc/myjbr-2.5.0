@@ -320,14 +320,16 @@
                 "home": "All",
                 "learn": "Courses",
                 "resources": "Library",
-                "profile": "Users"
+                "profile": "Users",
+                "orgUserManagement": "Users"
             },
             "searchEnabled": [
                 "home",
                 "learn",
                 "resources",
                 "profile",
-                "search"
+                "search",
+                "orgUserManagement"
             ],
             "All": {
                 "DROPDOWN": {
@@ -370,11 +372,11 @@
             "label": [
                 {
                     "id": "board",
-                    "name": "Board/Syllabus"
+                    "name": "Category"
                 },
                 {
                     "id": "gradeLevel",
-                    "name": "Grades"
+                    "name": "Sub-Category"
                 },
                 {
                     "id": "medium",
@@ -382,7 +384,7 @@
                 },
                 {
                     "id": "subject",
-                    "name": "Subjects"
+                    "name": "Topic"
                 },
                 {
                     "id": "contentType",

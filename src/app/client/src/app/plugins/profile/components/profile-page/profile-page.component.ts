@@ -1,6 +1,6 @@
 import { ProfileService } from '../../services';
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
-import { UserService, SearchService, PlayerService, CoursesService, OrgDetailsService } from '@sunbird/core';
+import { UserService, PermissionService, SearchService, PlayerService, CoursesService, OrgDetailsService } from '@sunbird/core';
 import {
   ResourceService, ConfigService, ServerResponse, IUserProfile, IUserData, ToasterService, UtilService,
   NavigationHelperService
@@ -12,11 +12,17 @@ import { IImpressionEventInput, IInteractEventEdata, IInteractEventObject } from
 import { ActivatedRoute, Router } from '@angular/router';
 import { CacheService } from 'ng2-cache-service';
 @Component({
+  selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit, OnDestroy, AfterViewInit {
-
+  /**
+   * Admin Dashboard access roles
+   */
+  adminDashboard: Array<string>;
+  enableCertificateFeature: string;
+  azureUrl: string;
   @ViewChild('profileModal') profileModal;
   @ViewChild('slickModal') slickModal;
   userProfile: any;
@@ -54,6 +60,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
+    this.azureUrl = (<HTMLInputElement>document.getElementById('certificateUrl')).value + (<HTMLInputElement>document.getElementById('certificateContainerName')).value + '/course_certificate/';
+    this.enableCertificateFeature = (<HTMLInputElement>document.getElementById('enableCertificateFeature')).value;
+    this.adminDashboard = this.configService.rolesConfig.headerDropdownRoles.adminDashboard;
     this.getCustodianOrgUser();
     this.userSubscription = this.userService.userData$.subscribe((user: IUserData) => {
       if (user.userProfile) {
@@ -160,7 +169,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.courseLimit = 3;
     }
   }
-
+  downloadCertificate(data) {
+    let downloadUrl = this.azureUrl + data.courseName + '-' + (<HTMLInputElement>document.getElementById('userId')).value + '-' + data.courseId + '.pdf';
+    window.open(downloadUrl, '_blank');
+  }
   updateProfile(data) {
     this.profileService.updateProfile({ framework: data }).subscribe(res => {
       this.userProfile.framework = data;

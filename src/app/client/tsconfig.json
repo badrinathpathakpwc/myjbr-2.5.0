@@ -59,6 +59,9 @@
       "@sunbird/player-helper": [
         "app/modules/player-helper"
       ],
+      "@sunbird/discussion": [
+        "app/modules/discussion"
+      ],
       "@sunbird/offline": [
         "app/modules/offline"
       ]
@@ -79,5 +82,9 @@
   },
   "exclude": [
     "**/*.spec.data.ts"
+  ],
+  "include":[
+    "./src",
+    "./node_modules/ngx-quill-editor/*"
   ]
 }

@@ -179,6 +179,9 @@ export class BatchDetailsComponent implements OnInit, OnDestroy {
         this.isUnenrollDisabled();
       });
   }
+  playContent() {
+    window.location.reload();
+  }
   fetchUserDetails() {
     _.forEach(this.batchList, (val) => {
       this.userList.push(val.createdBy);

@@ -13,6 +13,7 @@ import { INoteData } from '@sunbird/notes';
 import { IImpressionEventInput, IEndEventInput, IStartEventInput, IInteractEventObject, IInteractEventEdata } from '@sunbird/telemetry';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import * as TreeModel from 'tree-model';
+import { DiscussionModule } from './../../../../discussion/discussion.module';
 const ACCESSEVENT = 'renderer:question:submitscore';
 
 @Component({
@@ -95,6 +96,11 @@ export class CoursePlayerComponent implements OnInit, OnDestroy {
 
   private objectRollUp: any;
 
+  show: Boolean = false;
+  enableDiscussionFeature:string;
+  public feedbackModal: Boolean = false;
+  public showRatingModal: Boolean = false;
+  public telemetryFeedbackObject: IFeedbackObject;
   showContentCreditsModal: boolean;
 
   telemetryCdata: Array<{}>;
@@ -126,6 +132,7 @@ export class CoursePlayerComponent implements OnInit, OnDestroy {
     };
   }
   ngOnInit() {
+    this.enableDiscussionFeature = (<HTMLInputElement>document.getElementById('enableDiscussionFeature')).value;
     merge(this.activatedRoute.params.pipe(first(),
     mergeMap(({ courseId, batchId, courseStatus }) => {
       this.courseId = courseId;
@@ -333,6 +340,9 @@ export class CoursePlayerComponent implements OnInit, OnDestroy {
     const eid = _.get(event, 'detail.telemetryData.eid');
     if (eid === 'END' && !this.validEndEvent(event)) {
       return;
+    }
+    if (eid === 'END' && this.nextPlaylistItem === undefined) {
+      this.showRatingModal = true;
     }
     const request: any = {
       userId: this.userService.userid,

@@ -53,6 +53,14 @@ export class PageSectionComponent implements OnInit, OnDestroy {
     this.playEvent.emit(event);
   }
   ngOnInit() {
+  // Removing 100% Completed Courses
+    // if (this.section.name === 'My Courses') {
+    //   this.section.contents = _.reject(this.section.contents, function (obj) {
+    //     if (_.toNumber(_.get(obj, 'progress')) >= _.toNumber(_.get(obj, 'maxCount'))) {
+    //       return obj;
+    //     }
+    //   })
+    // }
     this.updateSlick();
     this.slideConfig = this.cardType === 'batch'
       ? _.cloneDeep(this.config.appConfig.CourseBatchPageSection.slideConfig)

@@ -1,5 +1,9 @@
 @import "variables"; 
 @import "../../../../../assets/styles/mixins/mixins";
+/* cursor */
+.cursor-pointer {
+  cursor: pointer;
+}
 /* fonts */
   .font-w-bold {
     font-weight: bold !important;
@@ -18,7 +22,8 @@
     background: #fafafa !important;
   }
   .profile-bg-c-3 {
-    background: #196DAB !important;
+    // background: #196DAB !important;
+    background: #a20303 !important;
   }
   .profile-bg-c-4 {
     background: #E0EFFF !important;

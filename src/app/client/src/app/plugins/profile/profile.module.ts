@@ -7,12 +7,13 @@ import { SlickModule } from 'ngx-slick';
 import { ProfileRoutingModule } from './profile-routing.module';
 import {
   ProfilePageComponent, ProfileBadgeComponent, UpdateContactDetailsComponent, UpdateUserDetailsComponent,
-  AccountRecoveryInfoComponent
+  AccountRecoveryInfoComponent, OrgUserManagementComponent
 } from './components';
 import { SuiSelectModule, SuiModalModule, SuiAccordionModule, SuiPopupModule, SuiDropdownModule,
   SuiProgressModule, SuiRatingModule, SuiCollapseModule } from 'ng2-semantic-ui';
 import { CoreModule } from '@sunbird/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrgManagementModule } from '@sunbird/org-management';
 // import { WebExtensionModule } from '@project-sunbird/web-extensions';
 import { TelemetryModule } from '@sunbird/telemetry';
 import { AvatarModule } from 'ngx-avatar';
@@ -26,6 +27,7 @@ import { AvatarModule } from 'ngx-avatar';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
+    OrgManagementModule,
     // WebExtensionModule,
     TelemetryModule,
     SlickModule,

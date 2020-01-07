@@ -95,9 +95,9 @@ module.exports = (app, keycloak) => {
 
   app.all('/app', (req, res) => res.redirect(envHelper.ANDROID_APP_URL))
 
-  app.all(['/announcement', '/announcement/*', '/search', '/search/*',
-    '/orgType', '/orgType/*', '/dashBoard', '/dashBoard/*',
-    '/workspace', '/workspace/*', '/profile', '/profile/*', '/learn', '/learn/*', '/resources',
+  app.all(['/home', '/home/*', '/announcement', '/announcement/*', '/search', '/search/*',
+    '/orgType', '/orgType/*', '/dashBoard', '/dashBoard/*', '/orgDashboard', '/orgDashboard/*',
+    '/workspace', '/workspace/*', '/profile', '/profile/*', '/orgUserManagement', '/orgUserManagement/*', '/learn', '/learn/*', '/resources',
     '/resources/*', '/myActivity', '/myActivity/*', '/org/*', '/manage'], keycloak.protect(), indexPage(true))
 
   app.all('/:tenantName', renderTenantPage)
@@ -131,6 +131,10 @@ function getLocals(req) {
   locals.googleCaptchaSiteKey = envHelper.sunbird_google_captcha_site_key
   locals.videoMaxSize = envHelper.sunbird_portal_video_max_size
   locals.reportsLocation = envHelper.sunbird_azure_report_container_name
+  locals.enableCertificateFeature = envHelper.ENABLE_CERTIFICATE_FEATURE
+  locals.enableDiscussionFeature = envHelper.ENABLE_DISCUSSION_FEATURE
+  locals.certificateUrl = envHelper.AZURE_STORAGE_URL
+  locals.certificateContainerName = envHelper.CERTIFICATE_STORE_CONTAINER_NAME
   locals.previewCdnUrl = envHelper.sunbird_portal_preview_cdn_url
   locals.offlineDesktopAppTenant = envHelper.sunbird_portal_offline_tenant
   locals.offlineDesktopAppVersion = envHelper.sunbird_portal_offline_app_version

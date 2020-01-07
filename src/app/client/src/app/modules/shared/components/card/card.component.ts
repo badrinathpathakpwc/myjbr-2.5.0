@@ -7,7 +7,8 @@ import * as _ from 'lodash-es';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './card.component.html'
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
   /**
@@ -32,5 +33,13 @@ export class CardComponent {
 
   public onAction(data, action) {
     this.clickEvent.emit({ 'action': action, 'data': data });
+  }
+  showCourseStatus(statusCode) {
+    return (_.round(statusCode) === 0) ? 'Not-Started' : ((_.round(statusCode) > 0 && _.round(statusCode) < 100) ? 'In-progress' : 'Completed');
+  }
+  downloadCertificate(metaData, courseName) {
+    const azureUrl = (<HTMLInputElement>document.getElementById('certificateUrl')).value + (<HTMLInputElement>document.getElementById('certificateContainerName')).value + '/course_certificate/';
+    let downloadUrl = azureUrl + courseName + '-' + (<HTMLInputElement>document.getElementById('userId')).value + '-' + metaData.courseId + '.pdf';
+    window.open(downloadUrl, '_blank');
   }
 }

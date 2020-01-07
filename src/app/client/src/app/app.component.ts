@@ -422,7 +422,8 @@ setFingerPrintTelemetry() {
   private setPortalTitleLogo(): void {
     this.tenantService.tenantData$.subscribe(data => {
       if (!data.err) {
-        document.title = this.userService.rootOrgName || data.tenantData.titleName;
+        /*document.title = this.userService.rootOrgName || data.tenantData.titleName;*/
+        document.title = "MyJBR";
         document.querySelector('link[rel*=\'icon\']').setAttribute('href', data.tenantData.favicon);
       }
     });
@@ -443,6 +444,7 @@ setFingerPrintTelemetry() {
     }, err => {
       this.toasterService.warning(this.resourceService.messages.emsg.m0012);
       this.frameWorkPopUp.modal.deny();
+      this.router.navigate(['/resources']);
       this.checkLocationStatus();
       this.cacheService.set('showFrameWorkPopUp', 'installApp');
     });

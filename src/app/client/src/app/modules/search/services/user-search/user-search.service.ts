@@ -55,6 +55,19 @@ export class UserSearchService {
     }));
   }
 
+  blockUnblockUser(requestParam) {
+    const option = {
+      url: requestParam.url,
+      data: {
+        'request': {
+          'userId': requestParam.userId
+        }
+      }
+    };
+    return this.learnerService.post(option);
+  }
+
+
   updateRoles(requestParam) {
     const option = {
       url: this.config.urlConFig.URLS.ADMIN.UPDATE_USER_ORG_ROLES,

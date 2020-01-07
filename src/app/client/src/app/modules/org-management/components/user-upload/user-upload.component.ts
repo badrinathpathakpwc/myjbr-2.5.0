@@ -18,6 +18,8 @@ import * as _ from 'lodash-es';
   templateUrl: './user-upload.component.html'
 })
 export class UserUploadComponent implements OnInit, OnDestroy, AfterViewInit {
+  organizationsList: any = [];
+  userProfile: any;
   @ViewChild('inputbtn') inputbtn: ElementRef;
   @ViewChild('modal') modal;
   /**
@@ -105,6 +107,7 @@ activateUpload = false;
   telemetryInteractObject: IInteractEventObject;
   public unsubscribe$ = new Subject<void>();
   private uploadUserRefLink: string;
+  showOrgError: boolean = false;
   /**
 * Constructor to create injected service(s) object
 *
@@ -140,6 +143,12 @@ activateUpload = false;
  * also defines array of instructions to be displayed
  */
   ngOnInit() {
+    this.userService.userData$.subscribe(userdata => {
+      if (userdata && !userdata.err) {
+        this.userProfile = userdata.userProfile;
+      }
+    });
+    this.getOrgList();
     document.body.classList.add('no-scroll'); // This is a workaround  we need to remove it when library add support to remove body scroll
     this.activatedRoute.data.subscribe(data => {
       if (data.redirectUrl) {
@@ -151,7 +160,8 @@ activateUpload = false;
     this.uploadUserForm = this.sbFormBuilder.group({
       provider: ['', null],
       externalId: ['', null],
-      organisationId: ['', null]
+      organisationId: [this.userProfile.rootOrgId],
+      orgId: ['', null]
     });
     this.userUploadInstructions = [
       { instructions: this.resourceService.frmelmnts.instn.t0099 },
@@ -196,6 +206,9 @@ activateUpload = false;
       this.showLoader = true;
       const formData = new FormData();
       formData.append('user', file);
+      formData.append('orgProvider', data.provider);
+      formData.append('orgExternalId', data.externalId);
+      formData.append('organisationId', data.organisationId);
       const fd = formData;
       this.fileName = file.name;
       this.orgManagementService.bulkUserUpload(fd).pipe(
