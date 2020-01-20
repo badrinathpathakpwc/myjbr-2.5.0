@@ -175,6 +175,13 @@ activateUpload = false;
     this.showLoader = false;
     this.setInteractEventData();
   }
+  getOrgList() {
+    this.organizationsList = _.filter(_.reject(this.userProfile.organisations, { 'organisationId': this.userProfile.rootOrgId }), function (obj) {
+      if (_.indexOf(_.get(obj, 'roles'), 'ORG_ADMIN') > -1) {
+        return obj;
+      }
+    });
+  }
   /**
  * This method helps to redirect to the parent component
  * page, i.e, bulk upload page

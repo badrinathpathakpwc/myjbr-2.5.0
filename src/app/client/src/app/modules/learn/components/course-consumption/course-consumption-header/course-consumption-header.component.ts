@@ -65,6 +65,7 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
   progress = 0;
   courseStatus: string;
   public unsubscribe = new Subject<void>();
+  public interval: any;
   batchEndDate: any;
   showSuccessModal: boolean = false;
   enableCertificateFeature:string;

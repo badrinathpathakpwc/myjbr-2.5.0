@@ -15,7 +15,7 @@ import {
   UsageService
 } from './services';
 import {
-  OrganisationComponent, CourseConsumptionComponent, CourseProgressComponent, UsageReportsComponent, ContentCreationStaticsComponent,
+  OrganisationComponent, CourseConsumptionComponent, CourseProgressComponent, ContentCreationStaticsComponent,
   DataTableComponent, DataChartComponent
 } from './components';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
@@ -33,6 +33,7 @@ import { PermissionDirective } from './directives';
 import { OrgChartModule } from 'ng2-org-chart';
 // Import Slick Library
 import { SlickModule } from 'ngx-slick';
+import { UsageReportsComponent } from './components/usage-reports/usage-reports.component';
 @NgModule({
   imports: [
     CommonModule,

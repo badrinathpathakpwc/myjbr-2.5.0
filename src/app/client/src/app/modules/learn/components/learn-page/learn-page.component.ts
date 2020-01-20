@@ -4,7 +4,7 @@ import { PageApiService, CoursesService, ISort, PlayerService, FormService, User
 import { Component, OnInit, OnDestroy, EventEmitter, AfterViewInit, HostListener } from '@angular/core';
 import {
   ResourceService, ServerResponse, ToasterService, ICaraouselData, ConfigService, UtilService, INoResultMessage,
-  BrowserCacheTtlService, NavigationHelperService
+  BrowserCacheTtlService, NavigationHelperService, IUserProfile
 } from '@sunbird/shared';
 import * as _ from 'lodash-es';
 import { Router, ActivatedRoute } from '@angular/router';

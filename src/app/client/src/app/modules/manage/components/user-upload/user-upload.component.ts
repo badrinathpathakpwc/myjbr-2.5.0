@@ -14,7 +14,8 @@ import { takeUntil } from 'rxjs/operators';
     styleUrls: ['user-upload.component.scss']
 })
 export class UserUploadComponent {
-
+  organizationsList: any = [];
+  userProfile: any;
   @ViewChild('inputbtn') inputbtn: ElementRef;
   @ViewChild('modal') modal;
   /**
@@ -123,11 +124,17 @@ export class UserUploadComponent {
   }
 
   ngOnInit() {
+    this.userService.userData$.subscribe(userdata => {
+      if (userdata && !userdata.err) {
+        this.userProfile = userdata.userProfile;
+      }
+    });
+    this.getOrgList();
     document.body.classList.add('no-scroll'); // This is a workaround  we need to remove it when library add support to remove body scroll
     this.uploadUserForm = this.sbFormBuilder.group({
       provider: ['', null],
       externalId: ['', null],
-      organisationId: ['', null]
+      organisationId: [this.userProfile.rootOrgId]
     });
     this.userUploadInstructions = [
       { instructions: this.resourceService.frmelmnts.instn.t0099 },
@@ -146,7 +153,13 @@ export class UserUploadComponent {
     this.file = event.target.files[0];
     this.activateUpload = true;
   }
-
+  public getOrgList() {
+    this.organizationsList = _.filter(_.reject(this.userProfile.organisations, { 'organisationId': this.userProfile.rootOrgId }), function (obj) {
+      if (_.indexOf(_.get(obj, 'roles'), 'ORG_ADMIN') > -1) {
+        return obj;
+      }
+    });
+  }
   /**
   * This method helps to upload a csv file and return process id
   */
