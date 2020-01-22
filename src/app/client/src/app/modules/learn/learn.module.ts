@@ -38,7 +38,7 @@ import { DiscussionModule } from '@sunbird/discussion';
     SharedFeatureModule,
     PlayerHelperModule
   ],
-  providers: [CourseConsumptionService, CourseBatchService, CourseProgressService, CourseDiscussService],
+  providers: [CourseConsumptionService, CourseBatchService, CourseProgressService, CourseDiscussService, AssessmentScoreService],
   declarations: [LearnPageComponent, CoursePlayerComponent, CourseConsumptionHeaderComponent,
     CourseConsumptionPageComponent, BatchDetailsComponent, EnrollBatchComponent, CreateBatchComponent,
     UpdateCourseBatchComponent, CurriculumCardComponent, UnEnrollBatchComponent]

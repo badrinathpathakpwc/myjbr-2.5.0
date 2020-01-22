@@ -36,7 +36,7 @@
             <div class="ml-auto text-right mt-8">
               <button appTelemetryInteract [telemetryInteractObject]="courseInteractObject"
                 [telemetryInteractEdata]="{id:'viewCourseDashboard' , type: 'click' , pageid:'course-consumption'}"
-                class="sb-btn sb-btn-secondary sb-btn-normal" (click)="showDashboard()"
+                class="sb-btn sb-btn-primary sb-btn-normal" (click)="showDashboard()"
                 *ngIf="permissionService.permissionAvailable && !enrolledCourse" appPermission
                 [permission]="dashboardPermission">
                 {{resourceService?.frmelmnts?.btn?.viewCourseStatsDashboard}}
@@ -55,11 +55,11 @@
                   <i class="caret right icon"></i>
                 </button>
               </div>
-              <div *ngIf="permissionService.permissionAvailable && !enrolledCourse" appPermission
+              <!-- <div *ngIf="permissionService.permissionAvailable && !enrolledCourse" appPermission
                 [permission]="dashboardPermission">
                 <button class="sb-btn sb-btn-primary sb-btn-normal width-100 mt-10"
                   (click)="showDashboard()">{{resourceService?.frmelmnts?.btn?.viewCourseStatsDashboard}}</button>
-              </div>
+              </div> -->
 
               <div *ngIf="showCertificateBtn" class="mt-10">
                 <button class="sb-btn sb-btn-primary sb-btn-normal width-100" (click)="downloadCertificate()">
