@@ -101,6 +101,15 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private shepherdService: ShepherdService) {
       this.instance = (<HTMLInputElement>document.getElementById('instance'))
         ? (<HTMLInputElement>document.getElementById('instance')).value : 'sunbird';
+    this.router.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) {
+        if (_.indexOf(_.split(window.location.href, '/'), 'learn') > -1 || _.indexOf(_.split(window.location.href, '/'), 'resources') > -1 || _.indexOf(_.split(window.location.href, '/'), 'explore') > -1) {
+          $('body').css("background-color", "#F6F6F6").find(".footer-fix").css("background-color", "#F6F6F6");
+        } else {
+          $('body').removeAttr("style").find(".footer-fix").removeAttr("style");
+        }
+      }
+    });
   }
   /**
    * dispatch telemetry window unload event before browser closes

@@ -20,7 +20,7 @@
     <form class="ui form">
       <div *ngFor="let field of formFieldOptions">
         <div class="required sb-field-form-group" *ngIf="field.code === 'board' && allowedFields.includes(field.code)">
-          <label>{{field.label}}</label>
+          <label>{{resourceService.frmelmnts.lbl.boards}}</label>
           <div class="sb-field">
             <sui-select id={{field.code}} [isSearchable]="false" class="selection" [(ngModel)]="selectedOption[field.code]"
               [options]="options" (ngModelChange)="handleFieldChange($event, field)" name={{field.code}}>
@@ -29,7 +29,8 @@
           </div>
         </div>
         <div class="sb-field-form-group mt-8" *ngIf="field.code !== 'board' && allowedFields.includes(field.code)" [ngClass]="field.code === 'subject' ? '' : 'required'">
-          <label>{{field.label}}</label>
+          <label *ngIf="field.code == 'gradeLevel'">{{resourceService.frmelmnts.lbl.classes}}</label>
+          <label *ngIf="field.code == 'medium'">{{resourceService.frmelmnts.lbl.medium}}</label>
           <div class="sb-field">
             <sui-multi-select id={{field.code}} [isSearchable]="false" class="selection" [(ngModel)]="selectedOption[field.code]"
               [options]="options" (ngModelChange)="handleFieldChange($event, field)" name={{field.code}} #multiSelect>
