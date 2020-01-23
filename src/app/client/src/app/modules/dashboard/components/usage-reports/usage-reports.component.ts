@@ -2,7 +2,7 @@ import { IInteractEventEdata, IInteractEventObject, TelemetryInteractDirective }
 import { IImpressionEventInput } from './../../../telemetry/interfaces/telemetry';
 import { Component, OnInit, ViewChild, ViewEncapsulation,AfterViewInit, OnDestroy } from '@angular/core';
 import { UsageService } from './../../services';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PermissionService, UserService } from '@sunbird/core';
 import { ToasterService, ResourceService, INoResultMessage, ConfigService, IUserProfile } from '@sunbird/shared';
@@ -82,7 +82,7 @@ export class UsageReportsComponent implements OnInit,AfterViewInit, OnDestroy {
   }
   ngAfterViewInit() {}
   ngOnInit() {
-    this.slideConfig = this.configService.appConfig.CoursePageSection.slideConfig;
+    this.slideConfig = this.configService.appConfig.DASHBOARD.slideConfig;
     this.azureUrl = (<HTMLInputElement>document.getElementById('certificateUrl')).value + (<HTMLInputElement>document.getElementById('certificateContainerName')).value + '/course_certificate/';
     this.enableCertificateFeature = (<HTMLInputElement>document.getElementById('enableCertificateFeature')).value;
     this.userService.userData$.subscribe(userdata => {

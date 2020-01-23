@@ -4,7 +4,7 @@ import {
   ResourceService, ConfigService, IUserProfile, ToasterService
 } from '../../../../modules/shared';
 import { Router } from '@angular/router';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { SubscriptionLike as ISubscription } from 'rxjs';
 import { IImpressionEventInput, IInteractEventObject } from '@sunbird/telemetry';
 import { ActivatedRoute } from '@angular/router';

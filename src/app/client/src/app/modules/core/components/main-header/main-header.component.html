@@ -43,8 +43,8 @@
                                 [permission]='adminDashboard' routerLink="dashBoard/organization">
                                 {{resourceService.frmelmnts?.lnk?.dashboard}}
                             </a> -->
-                            <a class="item" routerLink="orgDashboard">
-                                {{resourceService.frmelmnts?.lnk?.dashboard}}
+                            <a class="item" routerLink="dashBoard/orgDashboard">
+                                {{resourceService.frmelmnts?.lnk?.orgDashboard}}
                             </a>
                             <a *ngIf="userProfile?.rootOrgAdmin" class="item" routerLink="profile/orgUserManagement">
                                 {{resourceService.frmelmnts?.lnk?.usermanagement}}

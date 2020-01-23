@@ -1,14 +1,14 @@
 .userDetailsBlockSection {
     width: 100%;
     .userDetailsBlockCard {
-        width: calc(25% - 1.5em);
+        width: calc(2.6% - 1.5em);
         margin-left: .75em;
         margin-right: .75em;
         cursor: pointer;
         height: 85px;
         font-size: 1em;
         display: flex;
-        margin: .875em .5em;
+        margin: .875em 1.5em;
         -webkit-box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.26) !important;
         max-width: 100%;
         flex-direction: column;

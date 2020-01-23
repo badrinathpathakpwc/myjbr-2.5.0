@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IInteractEventInput, IImpressionEventInput, IInteractEventEdata, IInteractEventObject } from '@sunbird/telemetry';
 import { UserService, RolesAndPermissions, PermissionService, SearchService } from '@sunbird/core';
 import { Subject } from 'rxjs';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { DatePipe } from '@angular/common';
 import { ExternalIdsModal } from './onboard-user.modal';
 @Component({

@@ -2,7 +2,7 @@ import { IInteractEventEdata, IInteractEventObject, TelemetryInteractDirective }
 import { IImpressionEventInput } from './../../../telemetry/interfaces/telemetry';
 import { Component, OnInit, ViewChild, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { UsageService } from './../../services';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserService, PermissionService } from '@sunbird/core';
 import { ToasterService, ResourceService, INoResultMessage, ConfigService } from '@sunbird/shared';
@@ -48,7 +48,7 @@ export class ContentCreationStaticsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.slideConfig = this.configService.appConfig.CoursePageSection.slideConfig;
+    this.slideConfig = this.configService.appConfig.DASHBOARD.slideConfig;
     this.getContentCreationStaticsReport('14d');
     //Check Org Admin Role
     this.isOrgAdmin = this.permissionService.checkRolesPermissions(this.configService.rolesConfig.headerDropdownRoles.adminDashboard);
@@ -113,7 +113,7 @@ export class ContentCreationStaticsComponent implements OnInit, OnDestroy {
       uniqData.push(_.filter(self.tableData, { board: _.get(obj, 'board') }).length);
       uniqLabel.push(_.get(obj, 'board'));
     });
-    this.initializePolarChart(uniqData, uniqLabel);
+    this.initializePolarChart(_.compact(uniqData), _.compact(uniqLabel));
   }
   filterCreationData(category) {
     if (this.selectedCategory != category) {

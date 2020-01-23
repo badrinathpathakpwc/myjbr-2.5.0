@@ -90,7 +90,7 @@
                                     *ngFor="let block of userDetailsBlock" [class.active]="block.label === selectedOrg"
                                     (click)="filterUserDashboardData(block.label)">
                                     <div class="content center aligned">
-                                        <h2 class="description dashboardCardSubText">{{block.value}}</h2>
+                                        <h2 class="description dashboardCardSubText mb-10">{{block.value}}</h2>
                                         <div class="meta dashBoardCardText">{{block.label}}</div>
                                     </div>
                                 </div>
@@ -335,7 +335,7 @@
                                     [class.active]="block.label === selectedStatus"
                                     style="cursor: pointer;height: 85px;" (click)="filterEnrolledData(block.label)">
                                     <div class="content center aligned">
-                                        <h2 class="description dashboardCardSubText" style="line-height: 20px;">
+                                        <h2 class="description dashboardCardSubText mb-10" style="line-height: 20px;">
                                             {{block.value}}</h2>
                                         <div class="meta dashBoardCardText" style="font-size: 0.9em;">{{block.label}}
                                         </div>
