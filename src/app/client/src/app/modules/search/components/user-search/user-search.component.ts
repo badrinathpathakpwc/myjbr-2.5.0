@@ -13,7 +13,8 @@ import { ProfileService } from '@sunbird/profile';
 
 @Component({
   selector: 'app-user-search',
-  templateUrl: './user-search.component.html'
+  templateUrl: './user-search.component.html',
+  styleUrls: ['./user-search.component.scss']
 })
 export class UserSearchComponent implements OnInit, AfterViewInit {
   private searchService: SearchService;

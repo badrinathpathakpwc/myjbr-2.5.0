@@ -76,7 +76,7 @@ let envVariables = {
   sunbird_azure_account_key: 'wj5UAHKXMN497X/jju3BoZmqieamWKVe8Sro6vKAnTopVKBJdYNKjiCti3oJiKpKngFj4e0EPBRFNzr2eKfRDw==',
   AZURE_ACCOUNT_NAME: env.julia_azure_account_name || 'nuih',
   AZURE_ACCOUNT_KEY: env.julia_azure_account_key || '5SghfAqT/SbYk6dSQU+xuJEaZPQH4IcdiohieLvwcpm4toa3B3xzgO24paGfFtulScKK/PKNnVigpfwynvEdaA==',
-  AZURE_STORAGE_URL: env.julia_azure_storage_url || 'https://nuih.blob.core.windows.net/',
+  AZURE_STORAGE_URL: 'https://nuih.blob.core.windows.net/',
   CERTIFICATE_STORE_CONTAINER_NAME: env.julia_certificate_storage_container_name || 'certificate',
   ENABLE_CERTIFICATE_FEATURE: true,
   ENABLE_DISCUSSION_FEATURE: false,
