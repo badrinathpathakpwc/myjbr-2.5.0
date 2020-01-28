@@ -130,7 +130,7 @@
         "USERS_UPLOAD": "user/v2/upload",
         "ORGANIZATIONS_UPLOAD": "org/v1/upload",
         "STATUS": "data/v1/upload/status",
-        "USER_UPLOAD_SHADOW": "user/v1/bulk/upload"
+        "USER_UPLOAD_SHADOW": "user/v1/upload"
       },
       "DELETE_USER": "user/v1/block",
       "UNBLOCK_USER": "user/v1/unblock",
