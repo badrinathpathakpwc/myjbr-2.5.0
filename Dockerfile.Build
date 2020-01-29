@@ -18,6 +18,7 @@ RUN npm run deploy
 WORKDIR /home/jenkins/app/app_dist
 RUN npm install --production  --unsafe-perm
 WORKDIR /home/jenkins/app
+RUN cp -r tenant/ app_dist/
 # passing commit hash as build arg
 ARG commit_hash=0
 ENV commit_hash ${commit_hash}
