@@ -108,6 +108,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         } else {
           $('body').removeAttr("style").find(".footer-fix").removeAttr("style");
         }
+        if(this.router.isActive('resources/play/content', false)) {
+          $('body').css("padding-bottom", "0px").find(".footer-fix").css("padding-bottom", "0px");
+        } else {
+          $('body').css("padding-bottom", "").find(".footer-fix").css("padding-bottom", "");
+        }
       }
     });
   }

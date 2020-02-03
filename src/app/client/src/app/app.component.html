@@ -12,7 +12,7 @@
   <!--<app-breadcrumbs *ngIf="userService.loggedIn"></app-breadcrumbs>-->
   <router-outlet *ngIf="initApp"></router-outlet>
 </div>
-<app-footer *ngIf="!hideHeaderNFooter && !router.isActive('resources/play/content', false) && !router.isActive('profile', false)"></app-footer>
+<app-footer *ngIf="!hideHeaderNFooter && !router.isActive('resources/play/content', false) && !router.isActive('profile/userDetails', false)"></app-footer>
 <sui-modal [mustScroll]="false" [isClosable]="false" [transitionDuration]="0" [size]="'small'" class="sb-modal"
   (dismissed)="showLoginModal = false" #modal *ngIf="sessionExpiryInterceptor.sessionExpired">
   <div class="sb-modal-header">

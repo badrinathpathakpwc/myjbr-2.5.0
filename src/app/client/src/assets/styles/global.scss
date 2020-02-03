@@ -29,27 +29,27 @@ body {
 @include respond-above (lg){
   body{
     .footer-fix {
-      padding-bottom: 0px;
+      padding-bottom: 56px;
     }
   }
 }
 @include respond-between (md, lg){
   body{
     .footer-fix {
-      padding-bottom: 0px;
+      padding-bottom: 64px;
     }
   }
 }
 @include respond-between (sm, md){
   body{
     .footer-fix {
-      padding-bottom: 0px;
+      padding-bottom: 112px;
     }
   }
 }
 @include respond-above(sm) {
   body {
-    padding-bottom: 0px;
+    padding-bottom: 168px;
     .pusher {
       padding-bottom: 240px !important;
     }
