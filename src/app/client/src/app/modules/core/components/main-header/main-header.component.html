@@ -7,25 +7,25 @@
 <div class="ui fixed relative main menu bs-0 d-block">
     <extension-point [name]="'network-status-notify'" *ngIf="isOffline"></extension-point>
     <!--Header White Section-->
-    <div class="ui container" style="height:98px;">
+    <!-- <div class="ui container" style="height:98px;">
         <div class="ui grid padded width-100">
-            <div class="six wide column p-0">
+            <div class="six wide column p-0"> -->
                 <!--Logo-->
-                <a class="d-flex logo" tabindex="0" title="{{tenantInfo.titleName}}" role="banner">
+                <!-- <a class="d-flex logo" tabindex="0" title="{{tenantInfo.titleName}}" role="banner">
                     <img style="width: 90px;margin-top: -40px;" (click)="navigateToHome()" class="cursor-pointer" alt={{tenantInfo.titleName}} src="{{tenantInfo.logo}}">
                 </a>
-                <div *ngIf="tenantInfo?.logo" class="logo-text">Learning Hub</div>
+                <div *ngIf="tenantInfo?.logo" class="logo-text">Learning Hub</div> -->
                 <!--/Logo-->
-            </div>
-            <div class="six wide column p-0 d-flex flex-jc-flex-end flex-ai-center">
+            <!-- </div>
+            <div class="six wide column p-0 d-flex flex-jc-flex-end flex-ai-center"> -->
                 <!--Hamburger Icon-->
-                <i class="large bars icon link primary-color mobile only" (click)="showSideBar()" tabindex="0"></i>
+                <!-- <i class="large bars icon link primary-color mobile only" (click)="showSideBar()" tabindex="0"></i> -->
                 <!--/Hamburger Icon-->
                 <!--Main Menu-->
-                <app-main-menu class="d-flex computer only ml-auto"></app-main-menu>
+                <!-- <app-main-menu class="d-flex computer only ml-auto"></app-main-menu> -->
                 <!--/Main Menu-->
                 <!--Avtar Dropdown-->
-                <a class="profile-avtar computer only p-0 ml-15" *ngIf="userService.loggedIn && !isOffline"
+                <!-- <a class="profile-avtar computer only p-0 ml-15" *ngIf="userService.loggedIn && !isOffline"
                     tabindex="0">
                     <div suiDropdown class="ui dropdown right top pointing" id="dropdown-menu-list-header">
                         <ngx-avatar *ngIf='userProfile' [style]="avtarDesktopStyle" [size]="38" initialsSize="1"
@@ -38,17 +38,17 @@
                             <div class="ui divider"></div>
                             <a class="item" routerLink="profile/userDetails">
                                 {{resourceService.frmelmnts?.lnk?.profile}}
-                            </a>
+                            </a> -->
                             <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
                                 [permission]='adminDashboard' routerLink="dashBoard/organization">
                                 {{resourceService.frmelmnts?.lnk?.dashboard}}
                             </a> -->
-                            <a class="item" routerLink="dashBoard/orgDashboard">
+                            <!-- <a class="item" routerLink="dashBoard/orgDashboard">
                                 {{resourceService.frmelmnts?.lnk?.dashboard}}
                             </a>
                             <a *ngIf="userProfile?.rootOrgAdmin" class="item" routerLink="profile/orgUserManagement">
                                 {{resourceService.frmelmnts?.lnk?.usermanagement}}
-                            </a>
+                            </a> -->
                             <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
                                 [permission]='announcementRole' routerLink="announcement/outbox/1">
                                 {{resourceService.frmelmnts?.lnk?.announcement}}
@@ -57,10 +57,10 @@
                                 routerLink="dashBoard/myActivity">
                                 {{resourceService.frmelmnts?.lnk?.myactivity}}
                             </a> -->
-                            <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
+                            <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
                                 [permission]='orgSetupRole' routerLink="org/orgType">
                                 {{resourceService.frmelmnts?.lbl?.orgtypes}}
-                            </a>
+                            </a> -->
                           <!-- <a class="item" *ngIf='!isValidCustodianOrgUser' (click)="showAccountMergemodal = true;">
                             {{resourceService.frmelmnts?.lbl?.mergeAccount}}
                           </a> -->
@@ -71,32 +71,33 @@
                               [permission]='orgAdminRole' routerLink="manage">
                               {{resourceService.frmelmnts?.lbl?.manage}}
                           </a> -->
-                          <a class="item" appTelemetryInteract [telemetryInteractEdata]="getLogoutInteractEdata()"
+                          <!-- <a class="item" appTelemetryInteract [telemetryInteractEdata]="getLogoutInteractEdata()"
                                 (click)="logout()">
                                 {{resourceService.frmelmnts?.lnk?.logout}}
                             </a>
                         </div>
                     </div>
-                </a>
+                </a> -->
                 <!--/Avtar Dropdown-->
-            </div>
+            <!-- </div>
         </div>
-    </div>
+    </div> -->
     <!--Header White Section-->
     <!--Header Blue Section-->
     <!--Computer-->
-    <div class="sb-bg-color-primary p-8" *ngIf="showExploreHeader || userService.loggedIn || isOffline && !showOfflineHelpCentre">
+    <div class="sb-bg-color-primary" *ngIf="showExploreHeader || userService.loggedIn || isOffline && !showOfflineHelpCentre">
         <div class="ui container d-flex flex-ai-center mx-0">
             <!--QR Button-->
-            <button class="ui button qr-code-btn d-flex flex-ai-center computer only mr-0" appTelemetryInteract
+            <!-- <button class="ui button qr-code-btn d-flex flex-ai-center computer only mr-0" appTelemetryInteract
                 [telemetryInteractEdata]="enterDialCodeInteractEdata" (click)="showQrmodal = true;"
                 title="{{resourceService.frmelmnts?.lbl?.enterQrCode}}">
                 <i class="qrcode icon d-flex flex-ai-center"></i>
                 <span>{{resourceService.frmelmnts?.lbl?.enterQrCode}}</span>
-            </button>
+            </button> -->
+            <img class="cursor-pointer" style="height: 25px;margin-right: 10%;" alt="Learning Hub" src="assets/images/logo/1.png" (click)="navigateToHome()">
             <!--/QR Button-->
             <!--Divider-->
-            <span class="computer only mx-10 search-qrcode-divider">|</span>
+            <!-- <span class="computer only mx-10 search-qrcode-divider">|</span> -->
             <!--/Divider-->
             <!--Search Box-->
             <!--Logged in Pages-->
@@ -122,6 +123,69 @@
             </div>
             <!--/Explore Pages-->
             <!--/Search Box-->
+            <!--Main Menu-->
+            <app-main-menu class="d-flex computer only ml-auto"></app-main-menu>
+            <!--/Main Menu-->
+            <!--Avtar Dropdown-->
+            <a class="profile-avtar computer only p-0 ml-15" *ngIf="userService.loggedIn && !isOffline"
+                tabindex="0">
+                <div suiDropdown class="ui dropdown right top pointing" id="dropdown-menu-list-header">
+                    <ngx-avatar *ngIf='userProfile' [style]="avtarDesktopStyle" [size]="30" initialsSize="1"
+                        name="{{userProfile?.firstName}}">
+                    </ngx-avatar>
+                    <div class="menu" suiDropdownMenu>
+                        <div class="item headerDropdownProfile" *ngIf='userProfile'>
+                            {{userProfile?.firstName}}&nbsp;{{userProfile?.lastName}}
+                        </div>
+                        <div class="ui divider"></div>
+                        <a class="item" routerLink="profile/userDetails">
+                            {{resourceService.frmelmnts?.lnk?.profile}}
+                        </a>
+                        <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
+                            [permission]='adminDashboard' routerLink="dashBoard/organization">
+                            {{resourceService.frmelmnts?.lnk?.dashboard}}
+                        </a> -->
+                        <a class="item" appTelemetryInteract [telemetryInteractEdata]="workspaceMenuIntractEdata"
+                            *ngIf='permissionService.permissionAvailable' appPermission [permission]='workSpaceRole'
+                            [routerLink]="[navigateToWorkspace()]">
+                            {{resourceService?.frmelmnts?.tab?.workspace}}
+                        </a>
+                        <a class="item" routerLink="dashBoard/orgDashboard">
+                            {{resourceService.frmelmnts?.lnk?.dashboard}}
+                        </a>
+                        <a *ngIf="userProfile?.rootOrgAdmin" class="item" routerLink="profile/orgUserManagement">
+                            {{resourceService.frmelmnts?.lnk?.usermanagement}}
+                        </a>
+                        <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
+                            [permission]='announcementRole' routerLink="announcement/outbox/1">
+                            {{resourceService.frmelmnts?.lnk?.announcement}}
+                        </a> -->
+                        <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission [permission]='myActivityRole'
+                            routerLink="dashBoard/myActivity">
+                            {{resourceService.frmelmnts?.lnk?.myactivity}}
+                        </a> -->
+                        <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
+                            [permission]='orgSetupRole' routerLink="org/orgType">
+                            {{resourceService.frmelmnts?.lbl?.orgtypes}}
+                        </a>
+                        <!-- <a class="item" *ngIf='!isValidCustodianOrgUser' (click)="showAccountMergemodal = true;">
+                        {{resourceService.frmelmnts?.lbl?.mergeAccount}}
+                        </a> -->
+                        <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission [permission]='orgAdminRole' routerLink="/org/userUpload">
+                        {{resourceService.frmelmnts?.lbl?.manageuser}}
+                        </a> -->
+                        <!-- <a class="item" *ngIf='permissionService.permissionAvailable' appPermission
+                            [permission]='orgAdminRole' routerLink="manage">
+                            {{resourceService.frmelmnts?.lbl?.manage}}
+                        </a> -->
+                        <a class="item" appTelemetryInteract [telemetryInteractEdata]="getLogoutInteractEdata()"
+                            (click)="logout()">
+                            {{resourceService.frmelmnts?.lnk?.logout}}
+                        </a>
+                    </div>
+                </div>
+            </a>
+            <!--/Avtar Dropdown-->
             <!--Language Dropdown-->
             <app-language-dropdown [languageRange]='languages' class="computer only ml-auto"
                 *ngIf="languages && !router.isActive('workspace', false)">

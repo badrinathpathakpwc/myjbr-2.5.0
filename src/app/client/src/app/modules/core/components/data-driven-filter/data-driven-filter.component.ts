@@ -16,7 +16,7 @@ import { IInteractEventEdata } from '@sunbird/telemetry';
 })
 export class DataDrivenFilterComponent implements OnInit, OnChanges, OnDestroy {
   @Input() filterEnv: string;
-  @Input() accordionDefaultOpen: boolean;
+  @Input() accordionDefaultOpen?: boolean;
   @Input() isShowFilterLabel: boolean;
   @Input() hashTagId: string;
   @Input() ignoreQuery = [];

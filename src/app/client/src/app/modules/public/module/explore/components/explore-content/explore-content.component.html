@@ -1,9 +1,9 @@
 <app-data-driven-filter [pageId]="'explore-search'" *ngIf="initFilters && !isOffline" [filterEnv]="filterType"
-  [enrichFilters]="facetsList" [ignoreQuery]="['key']" [accordionDefaultOpen]=true
+  [enrichFilters]="facetsList" [ignoreQuery]="['key']"
   [isShowFilterLabel]=true [hashTagId]="hashTagId" [showSearchedParam]=true (dataDrivenFilter)="getFilters($event)"></app-data-driven-filter>
   
 <app-prominent-filter [pageId]="'explore-page'" *ngIf="initFilters && isOffline" [filterEnv]="filterType" [ignoreQuery]="['key']"
-  [accordionDefaultOpen]=true [isShowFilterLabel]=true [showSearchedParam]=true [isShowFilterLabel]=true
+  [isShowFilterLabel]=true [showSearchedParam]=true [isShowFilterLabel]=true
   [hashTagId]="hashTagId" (prominentFilter)="getFilters($event)"></app-prominent-filter>
 
 <div class="ui container">
@@ -43,7 +43,7 @@
     </div>
     <div class="twelve wide column right aligned py-0"
       *ngIf="paginationDetails.totalItems > configService.appConfig.SEARCH.PAGE_LIMIT && !showLoader && !isOffline">
-      <div class="sb-pagination-container flex-jc-flex-end" *ngIf="paginationDetails.pages.length">
+      <div class="sb-pagination-container flex-jc-flex-end mb-20" *ngIf="paginationDetails.pages.length">
         <div class="sb-pagination my-0">
           <a [ngClass]="{disabled:paginationDetails.currentPage===1 }" class="sb-item "
             (click)="navigateToPage(1) ">&laquo;</a>
@@ -60,7 +60,7 @@
     </div>
     <div class="twelve wide column right aligned py-0"
     *ngIf="paginationDetails.totalItems > configService.appConfig.SEARCH.PAGE_LIMIT && !showLoader && (isOffline && router.url.includes('browse'))">
-    <div class="sb-pagination-container flex-jc-flex-end" *ngIf="paginationDetails.pages.length">
+    <div class="sb-pagination-container flex-jc-flex-end mb-20" *ngIf="paginationDetails.pages.length">
       <div class="sb-pagination my-0">
         <a [ngClass]="{disabled:paginationDetails.currentPage===1 }" class="sb-item "
           (click)="navigateToPage(1) ">&laquo;</a>

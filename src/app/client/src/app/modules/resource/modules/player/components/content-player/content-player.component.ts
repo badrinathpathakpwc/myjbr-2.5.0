@@ -15,7 +15,8 @@ import { IInteractEventObject, IInteractEventEdata, IImpressionEventInput } from
  */
 @Component({
   selector: 'app-content-player',
-  templateUrl: './content-player.component.html'
+  templateUrl: './content-player.component.html',
+  styleUrls: ['./content-player.component.scss']
 })
 export class ContentPlayerComponent implements OnInit, AfterViewInit {
   /**
@@ -110,6 +111,31 @@ export class ContentPlayerComponent implements OnInit, AfterViewInit {
             this.getContent();
           }
         });
+    });
+    $(function () {
+      var acc = document.getElementsByClassName("ab-accordion");
+      var i;
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("ab-active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            if($(this).hasClass('first-accordion')) {
+              panel.style.maxHeight = null;
+              panel.style.padding = null;
+            } else {
+              panel.style.maxHeight = null;
+            }
+          } else {
+            if($(this).hasClass('first-accordion')) {
+              panel.style.maxHeight = '52px';
+              panel.style.padding = '15px';
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          }
+        });
+      }
     });
   }
   setTelemetryData() {

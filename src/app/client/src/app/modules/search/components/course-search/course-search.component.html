@@ -22,7 +22,7 @@
             <app-no-result [data]="noResultMessage"></app-no-result>
         </div>
         <div class="twelve wide column right aligned" *ngIf="paginationDetails.totalItems > configService.appConfig.SEARCH.PAGE_LIMIT && !showLoader">
-            <div class="sb-pagination-container flex-jc-flex-end" *ngIf="paginationDetails.pages.length">
+            <div class="sb-pagination-container flex-jc-flex-end mb-20" *ngIf="paginationDetails.pages.length">
                <div class="sb-pagination my-0">
                     <a [ngClass]="{disabled:paginationDetails.currentPage===1 }" class="sb-item " (click)="navigateToPage(1) ">&laquo;</a>
                     <a [ngClass]="{disabled:paginationDetails.currentPage===1 }" class="sb-item " (click)="navigateToPage(paginationDetails.currentPage - 1)">&lt;</a>

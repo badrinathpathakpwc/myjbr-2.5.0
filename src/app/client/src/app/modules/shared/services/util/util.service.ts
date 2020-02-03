@@ -42,6 +42,8 @@ export class UtilService {
       topic: this.getTopicSubTopic('topic', data.topic),
       subTopic: this.getTopicSubTopic('subTopic', data.topic),
       metaData: {},
+      previewUrl: data.previewUrl,
+      artifactUrl: data.artifactUrl,
       completionPercentage: data.completionPercentage || 0,
       mimeTypesCount: data.mimeTypesCount || 0
     };

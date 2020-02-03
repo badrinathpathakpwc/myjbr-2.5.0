@@ -15,6 +15,13 @@ import { Observable } from 'rxjs';
   templateUrl: './main-header.component.html'
 })
 export class MainHeaderComponent implements OnInit {
+  /**
+   * Workspace access roles
+   */
+  workSpaceRole: Array<string>;
+  workspaceMenuIntractEdata: IInteractEventEdata;
+  currentSearchMode:string = 'Basic';
+  showNLPSearch: boolean = false;
   @Input() routerEvents;
   languageFormQuery = {
     formType: 'content',
@@ -36,25 +43,26 @@ export class MainHeaderComponent implements OnInit {
   orgSetupRole: Array<string>;
   avtarMobileStyle = {
     backgroundColor: 'transparent',
-    color: '#AAAAAA',
+    color: '#0d47a1',
     fontFamily: 'inherit',
     fontSize: '17px',
-    lineHeight: '38px',
+    lineHeight: '30px',
     border: '1px solid #e8e8e8',
     borderRadius: '50%',
-    height: '38px',
-    width: '38px'
+    height: '30px',
+    width: '30px'
   };
   avtarDesktopStyle = {
     backgroundColor: 'transparent',
-    color: '#AAAAAA',
+    color: '#0d47a1',
     fontFamily: 'inherit',
     fontSize: '17px',
-    lineHeight: '38px',
+    lineHeight: '30px',
     border: '1px solid #e8e8e8',
     borderRadius: '50%',
-    height: '38px',
-    width: '38px'
+    height: '30px',
+    width: '30px',
+    'background-color': '#ffffff'
   };
   public signUpInteractEdata: IInteractEventEdata;
   public enterDialCodeInteractEdata: IInteractEventEdata;
@@ -85,6 +93,7 @@ export class MainHeaderComponent implements OnInit {
       this.myActivityRole = this.config.rolesConfig.headerDropdownRoles.myActivityRole;
       this.orgSetupRole = this.config.rolesConfig.headerDropdownRoles.orgSetupRole;
       this.orgAdminRole = this.config.rolesConfig.headerDropdownRoles.orgAdminRole;
+      this.workSpaceRole = this.config.rolesConfig.headerDropdownRoles.workSpaceRole;
   }
   ngOnInit() {
     if (this.userService.loggedIn) {
@@ -124,7 +133,12 @@ export class MainHeaderComponent implements OnInit {
       });
     }
   }
-
+  ngDoCheck() {
+    this.showNLPSearch = _.split(this.router.url,'/')[1] === 'explore' ? true : false;
+    if(_.split(this.router.url,'/')[1] !== 'explore') {
+      this.currentSearchMode = "Basic";
+    }
+  }
   private isCustodianOrgUser() {
     this.orgDetailsService.getCustodianOrgDetails().subscribe((custodianOrg) => {
       if (_.get(this.userService, 'userProfile.rootOrg.rootOrgId') === _.get(custodianOrg, 'result.response.value')) {
@@ -166,6 +180,9 @@ export class MainHeaderComponent implements OnInit {
     this.queryParam = {};
     if (key && key.length) {
       this.queryParam.key = key;
+    }
+    if(_.split(this.router.url,'/')[1] === 'explore') {
+      this.queryParam.nlpSearch = this.currentSearchMode === 'Basic' ? false : true;
     }
     if (this.isOffline) {
       this.routeToOffline();
@@ -247,6 +264,11 @@ export class MainHeaderComponent implements OnInit {
       type: 'click',
       pageid: 'explore'
     };
+    this.workspaceMenuIntractEdata = {
+      id: 'workspace-menu-button',
+      type: 'click',
+      pageid: 'workspace'
+    };
   }
 
   getLogoutInteractEdata() {
@@ -299,5 +321,11 @@ export class MainHeaderComponent implements OnInit {
   }
   showSideBar() {
     jQuery('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+  }
+  navigateToWorkspace() {
+    const authroles = this.permissionService.getWorkspaceAuthRoles();
+    if (authroles) {
+      return authroles.url;
+    }
   }
 }

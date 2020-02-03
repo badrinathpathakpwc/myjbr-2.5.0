@@ -2,19 +2,27 @@
   <div class="ui container">
 
     <!--Header-->
-    <h5 class="sb-prominent-filter-header">
-      {{resourceService.frmelmnts?.lbl?.explorecontentfrom}}
-      <i class="mobile only large angle down icon link right-floated" 
+    <!-- <h5 class="sb-prominent-filter-header"> -->
+      <!-- {{resourceService.frmelmnts?.lbl?.explorecontentfrom}} -->
+      <!-- <i class="mobile only large angle down icon link right-floated" 
         [ngStyle]="{'transform': collapse === true ? 'rotate(0deg)' : 'rotate(180deg)'}"
         (click)="collapse = !collapse"
         title="{{collapse==true?'Expand':'Collapse'}}" 
         popupInverted>
       </i>
-    </h5>
+    </h5> -->
     <!--/Header-->
-    
+    <sui-accordion [closeOthers]="false">
+      <sui-accordion-panel [isOpen]="accordionDefaultOpen" [isDisabled]="true">
+        <!--Toggle Header-->
+        <div title class="sb-data-driven-filter-header" appTelemetryInteract [telemetryInteractEdata]="filterInteractEdata" (click)="accordionDefaultOpen = !accordionDefaultOpen">
+          <i class="icon filter"></i>
+          {{resourceService.frmelmnts?.lbl?.filters}}
+          <i class="dropdown icon"></i>
+        </div>
+        <!--/Toggle Header-->
     <!--Filter-->
-    <div class="ui active sb-prominent-filter-container" [suiCollapse]="collapse" *ngIf="formFieldProperties">
+    <div content class="ui active sb-prominent-filter-container" [suiCollapse]="collapse" *ngIf="formFieldProperties">
 
       <div class="sb-prominent-filter-field" *ngFor="let field of formFieldProperties">
         <label>{{field.label}}</label>
@@ -37,6 +45,7 @@
 
     </div>
     <!--/Filter-->
-
+  </sui-accordion-panel>
+</sui-accordion>
   </div>
 </div>

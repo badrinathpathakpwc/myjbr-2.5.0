@@ -1,5 +1,5 @@
 import { ConfigService, NavigationHelperService } from '@sunbird/shared';
-import { Component, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter, OnChanges, AfterViewChecked } from '@angular/core';
 import * as _ from 'lodash-es';
 import { PlayerConfig } from '@sunbird/shared';
 import { environment } from '@sunbird/environment';
@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
   selector: 'app-player',
   templateUrl: './player.component.html'
 })
-export class PlayerComponent implements AfterViewInit, OnChanges {
+export class PlayerComponent implements AfterViewInit, OnChanges, AfterViewChecked {
   @Input() playerConfig: PlayerConfig;
   @Output() assessmentEvents = new EventEmitter<any>();
   @Output() questionScoreSubmitEvents = new EventEmitter<any>();
@@ -48,7 +48,9 @@ export class PlayerComponent implements AfterViewInit, OnChanges {
       this.loadPlayer();
     }
   }
-
+  ngAfterViewChecked() {
+    $('#contentPlayer').contents().find("html").find("#download-btn,.menu-icon").hide();
+  }
   ngOnChanges() {
     this.contentRatingModal = false;
     if (this.playerConfig) {
@@ -119,8 +121,9 @@ export class PlayerComponent implements AfterViewInit, OnChanges {
   adjustPlayerHeight() {
     const playerWidth = $('#contentPlayer').width();
     if (playerWidth) {
-      const height = playerWidth * (9 / 16);
-      $('#contentPlayer').css('height', height + 'px');
+      // const height = playerWidth * (9 / 16);
+      // $('#contentPlayer').css('height', height + 'px');
+      $('#contentPlayer').css({'display': 'block','overflow-y': 'hidden','height':'92vh'});
     }
   }
 

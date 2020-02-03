@@ -17,7 +17,7 @@ import { first, mergeMap, map, tap, catchError, filter } from 'rxjs/operators';
 })
 export class ProminentFilterComponent implements OnInit, OnDestroy {
   @Input() filterEnv: string;
-  @Input() accordionDefaultOpen: boolean;
+  @Input() accordionDefaultOpen?: boolean;
   @Input() isShowFilterLabel: boolean;
   @Input() hashTagId = '';
   @Input() ignoreQuery = [];
@@ -78,6 +78,7 @@ export class ProminentFilterComponent implements OnInit, OnDestroy {
   resourceDataSubscription: Subscription;
   isFiltered = true;
   applyFilterInteractEdata: IInteractEventEdata;
+  filterInteractEdata:IInteractEventEdata;
   private selectedLanguage: string;
   /**
    *
@@ -154,6 +155,11 @@ export class ProminentFilterComponent implements OnInit, OnDestroy {
         type: 'click',
         pageid: this.pageId,
         extra: {filters: filters}
+      };
+      this.filterInteractEdata = {
+        id: 'filter-accordion',
+        type: 'click',
+        pageid: this.pageId
       };
     }, 5);
   }
