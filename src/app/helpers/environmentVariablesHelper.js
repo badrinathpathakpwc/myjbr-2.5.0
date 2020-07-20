@@ -19,7 +19,7 @@ let envVariables = {
   EKSTEP_ENV: env.ekstep_env || 'qa',
   CRYPTO_ENCRYPTION_KEY: env.crypto_encryption_key || '030702bc8696b8ee2aa71b9f13e4251e',
   PORTAL_PORT: env.sunbird_port || 3000,
-  PORTAL_API_AUTH_TOKEN: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjNWM5YmU4MjU5Zjk0YmI2ODg5NjM0YzdlOGFlMjZkNSJ9._IL1JyrNJOMIS2unqj3CIes8XZ_IuSTaXuOor3munLQ',
+  PORTAL_API_AUTH_TOKEN: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI3NWM2MjU2OGI0NDQ0MTRmODdmZTljM2M3MWE0NTdlMSJ9.0bKHF_wWZiMoqhkcB6TZsmpZGNLhCg3xr-N9OPDTi9I',
   PORTAL_TELEMETRY_PACKET_SIZE: env.sunbird_telemetry_packet_size || 1000,
   PORTAL_ECHO_API_URL: env.sunbird_echo_api_url || 'https://knowledgeshare.ddns.net/api/echo/',
   PORTAL_AUTOCREATE_TRAMPOLINE_USER: env.sunbird_autocreate_trampoline_user || 'true',
