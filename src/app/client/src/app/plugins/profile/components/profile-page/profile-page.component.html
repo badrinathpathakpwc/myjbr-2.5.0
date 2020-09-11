@@ -301,7 +301,7 @@
                 </span>
                 <span class="fs-1 color-4" *ngIf="data.completedOn">{{data.completedOn | date :'dd-MMM-yyyy' }}</span>
                 <span class="fs-1 color-4 cursor-pointer"
-                  *ngIf="data.completedOn && enableCertificateFeature === 'true'" (click)=""
+                  *ngIf="data.completedOn && enableCertificateFeature === 'true'" 
                   style="margin-right: 35px;">
                   <img src="{{'assets/images/certificate-badge.png' | cdnprefixurl}}" style="height: 20px;">
                 </span>
