@@ -134,7 +134,7 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
         if (this.batchId && this.progress === 100) {
           if(this.enableCertificateFeature === 'true') {
             this.showCertificateBtn = true;
-            this.downloadCertificate();
+            // this.downloadCertificate();
           }
           this.showSuccessModal = true;
           this.showModal = true;

@@ -373,7 +373,7 @@
                             </ng-template>
                             <ng-template pTemplate="body" let-rowData let-columns="columns">
                                 <tr>
-                                    <td *ngFor="let col of columns" class="ui-resizable-column">
+                                    <!-- <td *ngFor="let col of columns" class="ui-resizable-column">
                                         {{rowData[col.field]}}
                                         <img *ngIf="col.header === 'Certificate' && rowData.statusName == 'Completed'"
                                             src="{{'assets/images/certificate-badge.png' | cdnprefixurl}}"
@@ -382,11 +382,11 @@
                                         <img *ngIf="col.header === 'Certificate' && rowData.statusName != 'Completed'"
                                             src="{{'assets/images/certificate-badge-grey.png' | cdnprefixurl}}"
                                             style="height: 20px;margin-left: 20px;cursor: not-allowed;">
-                                        <!-- <a href="{{rowData.downloadUrl}}" style="display: inline-flex"
+                                         <a href="{{rowData.downloadUrl}}" style="display: inline-flex"
                                             class="ui mini orange button" target="_blank"
                                             *ngIf="col.header === 'Certificate' && rowData.statusName == 'Completed'"><i
-                                                class="download icon" style="float: left"></i>&nbsp;Download</a> -->
-                                    </td>
+                                                class="download icon" style="float: left"></i>&nbsp;Download</a> 
+                                    </td> -->
                                 </tr>
                             </ng-template>
                         </p-table>

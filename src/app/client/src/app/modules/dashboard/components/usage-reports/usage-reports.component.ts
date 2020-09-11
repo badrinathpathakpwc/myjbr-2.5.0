@@ -126,7 +126,7 @@ export class UsageReportsComponent implements OnInit,AfterViewInit, OnDestroy {
     };
   }
   downloadCertificate(url) {
-    window.open(url, '_blank');
+    // window.open(url, '_blank');
   }
   getEnrolledCourses() {
     this.usageService.getEnrolledCourses().subscribe(response => {

@@ -244,7 +244,8 @@
 </div>
 <!-- For Completed Courses -->
 <div class="completed-section mt-20" *ngIf="data && data?.maxCount != undefined && (data?.progress >= data?.maxCount)"
-  (click)="downloadCertificate(data?.metaData,data?.name)">
+  (click)="">
+  <!-- (click)="downloadCertificate(data?.metaData,data?.name)"> -->
   <img class="lazy" alt="Completed Course" src="{{'assets/images/completed-course.png' | cdnprefixurl}}">
   <div class="lesson-title text-center mt-5">
     <span>
