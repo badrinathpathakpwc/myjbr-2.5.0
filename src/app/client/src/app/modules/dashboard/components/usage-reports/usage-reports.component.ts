@@ -203,9 +203,9 @@ export class UsageReportsComponent implements OnInit,AfterViewInit, OnDestroy {
       { field: 'completedOn', header: 'Completion Date', width: '116px' },
       { field: 'statusName', header: 'Status', width: '86px' },
     ];
-    if (this.enableCertificateFeature === 'true') {
-      this.cols.push({ field: 'certificate', header: 'Certificate', width: '75px' });
-    }
+    // if (this.enableCertificateFeature === 'true') {
+    //   this.cols.push({ field: 'certificate', header: 'Certificate', width: '75px' });
+    // }
   }
   initializeCourseDashboardColumns() {
     this.courseDashboardColumns = [

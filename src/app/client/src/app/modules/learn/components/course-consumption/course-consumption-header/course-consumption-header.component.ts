@@ -132,17 +132,17 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
         this.progress = courseProgressData.progress ? Math.floor(courseProgressData.progress) : 0;
         this.lastPlayedContentId = courseProgressData.lastPlayedContentId;
         if (this.batchId && this.progress === 100) {
-          if(this.enableCertificateFeature === 'true') {
-            this.showCertificateBtn = true;
-            this.downloadCertificate();
-          }
+          // if(this.enableCertificateFeature === 'true') {
+          //   // this.showCertificateBtn = true;
+          //   // this.downloadCertificate();
+          // }
           this.showSuccessModal = true;
           this.showModal = true;
           this.setTelemetryData();
         }
-        if(this.enableCertificateFeature === 'true') {
-          this.showCertificateBtn = (this.progress === 100);
-        }
+        // if(this.enableCertificateFeature === 'true') {
+        //   // this.showCertificateBtn = (this.progress === 100);
+        // }
         if (!this.flaggedCourse && this.onPageLoadResume &&
           !this.contentId && this.enrolledBatchInfo.status > 0 && this.lastPlayedContentId) {
           this.onPageLoadResume = false;
