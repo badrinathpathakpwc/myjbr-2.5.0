@@ -78,7 +78,7 @@ let envVariables = {
   AZURE_ACCOUNT_KEY: env.julia_azure_account_key || 'u4KgSUKRrD2IiCMKDhwXUybWBdlvxi9FLCg9XcEWbzXcHcNoiM5rnqA9Wx7TTUH1vLe1hUmbtfLQeDT5xmKTEg==',
   AZURE_STORAGE_URL: 'https://pzigxpcinslef20p008.blob.core.windows.net/',
   CERTIFICATE_STORE_CONTAINER_NAME: env.julia_certificate_storage_container_name || 'certificate',
-  ENABLE_CERTIFICATE_FEATURE: true,
+  ENABLE_CERTIFICATE_FEATURE: false,
   ENABLE_DISCUSSION_FEATURE: false,
   CERTIFICATE_PROVIDER_NAME: env.julia_certificate_provider_name || 'NUIH',
   CERTIFICATE_INSTRUCTOR_NAME: env.julia_certificate_instructor_name || 'Abhijith Chandraprabhu',
