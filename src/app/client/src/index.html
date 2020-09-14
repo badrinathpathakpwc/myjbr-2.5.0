@@ -105,7 +105,9 @@
   <% if (deviceApi) { %>
     <input type="hidden" id="deviceApi" value="<%=deviceApi%>" />
   <% } %>
+  <% if (enableCertificateFeature) { %>
   <input type="hidden" id="enableCertificateFeature" value="<%=enableCertificateFeature%>" />
+  <% } %>
   <input type="hidden" id="enableDiscussionFeature" value="<%=enableDiscussionFeature%>" />
   <input type="hidden" id="certificateUrl" value="<%=certificateUrl%>" />
   <input type="hidden" id="certificateContainerName" value="<%=certificateContainerName%>" />
