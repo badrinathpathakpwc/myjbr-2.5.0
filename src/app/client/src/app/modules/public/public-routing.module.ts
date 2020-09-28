@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './components';
+import { PrivacyPageComponent } from './components';
 import { LandingpageGuard } from './services';
 import { OfflineApplicationDownloadComponent } from '@sunbird/shared';
 
@@ -8,6 +9,10 @@ const routes: Routes = [
   {
     path: '', component: LandingPageComponent, canActivate: [LandingpageGuard],
     data: { telemetry: { env: 'public', pageid: 'landing-page', type: 'edit', subtype: 'paginate' } }
+  },
+  {
+    path: 'page', component: PrivacyPageComponent,
+    data: { telemetry: { env: 'public', pageid: 'privacy-page', type: 'edit', subtype: 'paginate' } }
   },
   {
     path: 'explore', loadChildren: './module/explore/explore.module#ExploreModule'

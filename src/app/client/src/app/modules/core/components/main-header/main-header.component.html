@@ -85,7 +85,7 @@
     <!--Header White Section-->
     <!--Header Blue Section-->
     <!--Computer-->
-    <div class="sb-bg-color-primary" *ngIf="showExploreHeader || userService.loggedIn || isOffline && !showOfflineHelpCentre">
+    <div class="sb-bg-color-primary" *ngIf="showExploreHeader || PrivacyHeader || userService.loggedIn || isOffline && !showOfflineHelpCentre">
         <div class="ui container d-flex flex-ai-center mx-0">
             <!--QR Button-->
             <!-- <button class="ui button qr-code-btn d-flex flex-ai-center computer only mr-0" appTelemetryInteract
@@ -94,7 +94,7 @@
                 <i class="qrcode icon d-flex flex-ai-center"></i>
                 <span>{{resourceService.frmelmnts?.lbl?.enterQrCode}}</span>
             </button> -->
-            <img class="cursor-pointer" style="height: 25px;margin-right: 10%;" alt="Learning Hub" src="assets/images/logo/1.png" (click)="navigateToHome()">
+            <a class="cursor-pointer" style="height: 25px;margin-right: 10%;color:#fff;font-size: 16px;font-weight: 600;" (click)="navigateToHome()">Learning and Capacity Building Portal</a>
             <!--/QR Button-->
             <!--Divider-->
             <!-- <span class="computer only mx-10 search-qrcode-divider">|</span> -->

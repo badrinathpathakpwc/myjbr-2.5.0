@@ -31,6 +31,7 @@ export class MainHeaderComponent implements OnInit {
   exploreButtonVisibility: string;
   queryParam: any = {};
   showExploreHeader = false;
+  PrivacyHeader = false;
   showQrmodal = false;
   showAccountMergemodal = false;
   isValidCustodianOrgUser = true;
@@ -242,8 +243,13 @@ export class MainHeaderComponent implements OnInit {
       this.slug = _.get(this.activatedRoute, 'snapshot.firstChild.firstChild.params.slug');
       if (_.includes(urlAfterRedirects.url, '/explore-course') || _.includes(urlAfterRedirects.url, '/explore')) {
         this.showExploreHeader = true;
-      } else {
+      }
+      else if (_.includes(urlAfterRedirects.url, '/page')) {
+        this.PrivacyHeader = true;
+      }
+       else {
         this.showExploreHeader = false;
+        this.PrivacyHeader = false;
       }
     });
   }

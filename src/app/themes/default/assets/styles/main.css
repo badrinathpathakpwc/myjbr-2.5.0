@@ -387,6 +387,10 @@
 .cursor-pointer {
   cursor: pointer !important;
 }
+.cursor-pointer :hover {
+  cursor: pointer;
+  color: #fff !important;
+}
 .cursor-pointerText {
   cursor: text;
   pointer-events: none !important;

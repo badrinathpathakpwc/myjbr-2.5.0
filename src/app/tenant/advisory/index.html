@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>MyJBR</title>
+  <title>Learning and Capacity Building Portal</title>
 
   <!-- Google Fonts -->
   <link
@@ -56,7 +56,7 @@
         <div class="container">
           <div>
             <img src="logo.png" class="logo-image">
-            <div class="logo-text">Learning Hub</div>
+            <div class="logo-text">Learning and Capacity Building Portal</div>
           </div>
           <!-- <div class="logo-center">
             <img src="img/banner-image.gif">
@@ -90,8 +90,9 @@
                     </form> -->
               </li>
               <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/explore/1">Explore</a> </li>
-              <li class="nav-item"> <a class="nav-link js-scroll-trigger"
-                  href="javascript:">Support</a> </li>
+              <li class="nav-item"> 
+                <a class="nav-link js-scroll-trigger"
+                  href="https://myjbr.flexresourcemanagement.com/resources/play/content/do_113117650142248960151">User Manual</a>
               <!-- <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/explore-course">Explore Courses</a> -->
               </li>
               <li class="nav-item"> <a class="btn btn-primary" href="/learn">Sign In</a></li>
@@ -150,7 +151,7 @@
     </div>
   </section>
   <br>
-  <section>
+  <!-- <section>
     <div class="row" style="padding: 0 105px 0 100px;">
       <div class="col-md-12" style="padding-left: 0;">
         <h5 class="pageSection-heading" style="margin-left: 10px !important;"><b>Focus on</b></h5>
@@ -224,7 +225,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- #intro -->
   <br>
   <section class="resource-section">
@@ -256,17 +257,19 @@
             PwC. All rights reserved. PwC refers to the PwC network and/or one or more of its member firms,<br> each of
             which is a separate legal entity. Please see <a href="http://www.pwc.com/structure" target="_blank"
               style="color:#ffffff">www.pwc.com/structure</a> for further details.</p>
-          <div class="row" style="margin-bottom: 20px;">
+            <p style="color:#ffffff;font-size: 14px;text-align: left;margin-bottom: 0px">Contact us : <span style="text-decoration: underline;">example@example.com</span></p>
+          
+            <div class="row" style="margin-bottom: 20px;">
 
             <div class="col-md-4 w3l-footer">
 
               <div class="nav-w3-l">
                 <ul class="list-unstyled">
                   <li style="margin-left:-27px;">
-                    <a href="javascript:">Terms</a>
+                    <a class="cursor-pointer" href="/page?title=terms" (click)=openPage($event) routerLink="/page" [queryParams]="{ title: 'terms' }">Terms</a>
                   </li>
                   <li>
-                    <a href="javascript:">Privacy</a>
+                    <a class="cursor-pointer" href="/page?title=privacy" routerLink="/page" [queryParams]="{ title: 'privacy' }">Privacy</a>
                   </li>
 
                   <li>
@@ -878,6 +881,13 @@
     function redirectToExplore(param) {
       location.href = "/explore/1?key=" + param;
     }
+    function openPage(param){
+      this.router.navigate(['/page']);
+    };
+
+    // this.router.navigate(["admin/user/edit"],  navigationExtras);
+    // }
+
     function calculateTimeAgo(lastUpdatedOn) {
       const local = moment(lastUpdatedOn).local().format('YYYY-MM-DD HH:mm:ss');
       return moment(local).fromNow();

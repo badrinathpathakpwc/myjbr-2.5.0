@@ -166,12 +166,13 @@ body {
   cursor: default !important;
 }
 .logo-text {
-  margin-left: 5px;
+  margin-left: -70px !important;
   font-size: 13px;
-  width: 207px;
+  width: 260px !important;
   color: #a32020;
   font-weight: 600;
-  margin-top: -16px;
+  margin-top: -17px;
+  position: fixed;
 }
 .ui.selection.able.dropdown {
   padding: 9px 8px !important;

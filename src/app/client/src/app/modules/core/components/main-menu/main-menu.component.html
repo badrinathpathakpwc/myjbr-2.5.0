@@ -31,13 +31,13 @@
 		</button>
 		<a class="item"
 			[class.active]="router.isActive('/search/explore') || router.isActive(slug ? slug + '/explore' : '/explore')"
-			*ngIf="!router.isActive('', true)" [routerLink]="[slug ? slug + '/explore' : '/explore']"
+			*ngIf="!router.isActive('', true) && !router.isActive('/page?title=terms', true) && !router.isActive('/page?title=privacy', true)" [routerLink]="[slug ? slug + '/explore' : '/explore']"
 			appTelemetryInteract [telemetryInteractEdata]="libraryMenuIntractEdata">
 			<img src="assets/images/library.png" title="{{resourceService?.frmelmnts?.tab?.resources}}" style="width: 28px;">
 		</a>
 		<a class="item"
 			[class.active]="router.isActive('/search/explore-course') || router.isActive(slug ? slug + '/explore-course' : '/explore-course')"
-			*ngIf="!router.isActive('', true)" [routerLink]="[slug ? slug + '/explore-course' : '/explore-course']"
+			*ngIf="!router.isActive('', true) && !router.isActive('/page?title=terms', true) && !router.isActive('/page?title=privacy', true)" [routerLink]="[slug ? slug + '/explore-course' : '/explore-course']"
 			appTelemetryInteract [telemetryInteractEdata]="learnMenuIntractEdata">
 			<img src="assets/images/courses.png" title="{{resourceService?.frmelmnts?.tab?.courses}}" style="width: 28px;">
 		</a>

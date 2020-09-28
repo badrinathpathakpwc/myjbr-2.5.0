@@ -2598,9 +2598,9 @@ button#dropdownMenuButton {
   margin-left: 30%;
 }
 .logo-text {
-  margin-left: 7px;
+  margin-left: -70px !important;
   font-size: 13px;
-  width: 207px;
+  width: 260px !important;
   color: #a32020;
   font-weight: 600;
   margin-top: -17px;
@@ -3167,6 +3167,10 @@ span.lesson-pin-last-updated.changeformat, i.fa.fa-history {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.cursor-pointer :hover {
+  cursor: pointer;
+  color: #fff !important;
 }
 .fa-commenting {
   font-size: 13px !important;
