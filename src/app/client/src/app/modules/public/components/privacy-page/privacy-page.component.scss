@@ -6,4 +6,11 @@
         line-height: 22.652px;
         margin-bottom: 14px !important;
     }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+        padding: 10px;
+    }
 }

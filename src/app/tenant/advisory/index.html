@@ -269,11 +269,11 @@
                     <a class="cursor-pointer" href="/page?title=terms" (click)=openPage($event) routerLink="/page" [queryParams]="{ title: 'terms' }">Terms</a>
                   </li>
                   <li style="margin-bottom: 10px">
-                    <a class="cursor-pointer" href="/page?title=privacy" routerLink="/page" [queryParams]="{ title: 'privacy' }">Privacy</a>
+                    <a class="cursor-pointer" (click)=openPage($event) href="/page?title=privacy" routerLink="/page" [queryParams]="{ title: 'privacy' }">Privacy</a>
                   </li>
 
                   <li style="margin-bottom:10px">
-                    <a href="javascript:">Cookies</a>
+                    <a class="cursor-pointer" (click)=openPage($event) href="/page?title=cookies" routerLink="/page" [queryParams]="{ title: 'cookies' }">Cookies</a>
                   </li>
 
                 </ul>
